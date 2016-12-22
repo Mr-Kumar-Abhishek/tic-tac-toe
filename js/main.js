@@ -44,30 +44,48 @@ TICTACTOE.events = {
 	userClick: function(){
 		$("#1").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[0] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#2").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[1] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#3").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[2] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#4").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[3] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#5").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[4] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#6").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[5] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#7").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[6] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#8").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[7] = 2;
+			TICTACTOE.logEverything();
 		});
 		$("#9").click(function(){
 			$(this).html("X");
+			TICTACTOE.boardFill[8] = 2;
+			TICTACTOE.logEverything();
 		});
 	},
 	computerClick: function(boxNumber) {
