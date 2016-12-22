@@ -17,8 +17,11 @@ h1 {
 }
 
 .tic-tac-box {
-	 height: 94px;
+	height: 82px;
     float: left;
-    width: 94px;
+    width: 78px;
     border: black solid;
+    font-size: 5em;
+    padding-top: 12px;
+    padding-left: 16px;
 }
