@@ -26,6 +26,15 @@ var TICTACTOE = TICTACTOE || {
 		},
 		tests: function(){
 			TICTACTOE.events.userClick();
+			TICTACTOE.events.computerClick("1");
+			TICTACTOE.events.computerClick("2");
+			TICTACTOE.events.computerClick("3");
+			TICTACTOE.events.computerClick("4");
+			TICTACTOE.events.computerClick("5");
+			TICTACTOE.events.computerClick("6");
+			TICTACTOE.events.computerClick("7");
+			TICTACTOE.events.computerClick("8");
+			TICTACTOE.events.computerClick("9");
 		}
 	};
 	
@@ -59,6 +68,9 @@ TICTACTOE.events = {
 		$("#9").click(function(){
 			$(this).html("X");
 		});
+	},
+	computerClick: function(boxNumber) {
+		$("#" + boxNumber).html("O");
 	}
 }
 
