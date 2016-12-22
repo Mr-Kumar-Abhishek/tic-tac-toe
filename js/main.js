@@ -1,0 +1,2 @@
+var TICTACTOE = TICTACTOE || {};
+
