@@ -6,3 +6,12 @@ h1 {
 	text-align: center;
 	color: #fff;
 }
+
+.game {
+	height: 100px;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15vw;
+	background: #fff;
+}
