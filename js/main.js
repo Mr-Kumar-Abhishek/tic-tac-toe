@@ -9,7 +9,8 @@ var TICTACTOE = TICTACTOE || {
 		],
 		
 		computerScore: 0,
-		playerScore: 0
+		playerScore: 0,
+		boardFill: [0,0,0,0,0,0,0,0,0]
 	
 	};
 
