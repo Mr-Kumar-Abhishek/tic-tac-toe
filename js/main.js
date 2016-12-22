@@ -14,12 +14,28 @@ var TICTACTOE = TICTACTOE || {
 		computerScore: 0,
 		playerScore: 0,
 		boardFill: [0,0,0,0,0,0,0,0,0],
+		initialize: function(){
+			TICTACTOE.logEverything();
+			TICTACTOE.tests();
+		},
 		logEverything: function(){
 			console.log("winning routes : " + TICTACTOE.winRoutes);
 			console.log("player score : " + TICTACTOE.playerScore);
 			console.log("computer score : " + TICTACTOE.computerScore);
 			console.log("Filled spaces in board : " + TICTACTOE.boardFill);
-		} 
+		},
+		tests: function(){
+			TICTACTOE.events.userClick();
+		}
 	};
+	
+	
+TICTACTOE.events = {
+	userClick: function(){
+		$("#1").click(function(){
+			$(this).html("X");
+		});
+	}
+}
 
-$(TICTACTOE.logEverything());
+$(TICTACTOE.initialize());
