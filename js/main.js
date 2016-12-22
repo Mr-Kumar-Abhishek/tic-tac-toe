@@ -35,6 +35,7 @@ var TICTACTOE = TICTACTOE || {
 			TICTACTOE.events.computerClick("7");
 			TICTACTOE.events.computerClick("8");
 			TICTACTOE.events.computerClick("9");
+			TICTACTOE.logEverything();
 		}
 	};
 	
@@ -71,6 +72,7 @@ TICTACTOE.events = {
 	},
 	computerClick: function(boxNumber) {
 		$("#" + boxNumber).html("O");
+		TICTACTOE.boardFill[boxNumber - 1] = 1;
 	}
 }
 
