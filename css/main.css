@@ -8,10 +8,17 @@ h1 {
 }
 
 .game {
-	height: 100px;
-	width: 100px;
+	height: 300px;
+	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 15vw;
 	background: #fff;
+}
+
+.tic-tac-box {
+	 height: 94px;
+    float: left;
+    width: 94px;
+    border: black solid;
 }
