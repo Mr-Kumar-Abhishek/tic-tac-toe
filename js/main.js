@@ -10,7 +10,13 @@ var TICTACTOE = TICTACTOE || {
 		
 		computerScore: 0,
 		playerScore: 0,
-		boardFill: [0,0,0,0,0,0,0,0,0]
-	
+		boardFill: [0,0,0,0,0,0,0,0,0],
+		logEverything: function(){
+			console.log("winning routes : " + TICTACTOE.winRoutes);
+			console.log("player score : " + TICTACTOE.playerScore);
+			console.log("computer score : " + TICTACTOE.computerScore);
+			console.log("Filled spaces in board : " + TICTACTOE.boardFill);
+		} 
 	};
 
+$(TICTACTOE.logEverything());
