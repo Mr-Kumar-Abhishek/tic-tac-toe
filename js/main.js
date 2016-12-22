@@ -6,7 +6,10 @@ var TICTACTOE = TICTACTOE || {
 			[7,8,9],
 			[7,5,2],
 			[1,5,9]
-		]
+		],
+		
+		computerScore: 0,
+		playerScore: 0
 	
 	};
 
