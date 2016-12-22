@@ -1,3 +1,8 @@
+html, body {
+	background: #163825;
+}
+
 h1 {
 	text-align: center;
+	color: #fff;
 }
