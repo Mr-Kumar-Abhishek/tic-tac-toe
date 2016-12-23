@@ -41,54 +41,63 @@ TICTACTOE.events = {
 			TICTACTOE.boardFill[0] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#2").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[1] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#3").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[2] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#4").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[3] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#5").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[4] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#6").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[5] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#7").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[6] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#8").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[7] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 		$("#9").click(function(){
 			$(this).html("X");
 			TICTACTOE.boardFill[8] = 2;
 			TICTACTOE.logEverything();
 			TICTACTOE.brain.takeStep();
+			TICTACTOE.judge.anyWon();
 		});
 	},
 	computerClick: function(boxNumber) {
@@ -241,6 +250,26 @@ TICTACTOE.percieve = {
 		else{
 			
 			return false;
+		}
+	},
+	isBlockByComputer: function(CBlock){
+		 return TICTACTOE.boardFill[CBlock  - 1 ] == 1;
+	},
+	isBlockByUser: function(UBlock){
+		return TICTACTOE.boardFill[UBlock - 1 ] == 2;
+	} 
+}
+
+TICTACTOE.judge = {
+	
+	anyWon: function(){
+		var winLoose  = TICTACTOE.winRoutes.some(function(route){
+			
+							return route.every(TICTACTOE.percieve.isBlockByComputer) || route.every(TICTACTOE.percieve.isBlockByComputer);
+						});
+		
+		if (winLoose == true){
+			console.log("Someone won");
 		}
 	}
 }
