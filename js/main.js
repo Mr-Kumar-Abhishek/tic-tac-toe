@@ -99,6 +99,8 @@ TICTACTOE.events = {
 
 TICTACTOE.brain = {
 	
+	// this will hold the algorithm to beat the user, currently it is dumb.
+	
 	takeStep: function(){
 		TICTACTOE.events.computerClick(TICTACTOE.brain.decide());
 	},
