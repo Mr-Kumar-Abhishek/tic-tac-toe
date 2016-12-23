@@ -117,11 +117,6 @@ TICTACTOE.brain = {
 			
 			console.log("one or more empty sides are found !");
 		}
-		else if ( TICTACTOE.percieve.isAnyCornerFilled() == true ){
-			
-			console.log("Caught corner !");
-			
-		}
 	}
 }
 
