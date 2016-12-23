@@ -111,8 +111,22 @@ TICTACTOE.brain = {
 		}
 		else if(TICTACTOE.percieve.isAnyCornerEmpty() == true ){
 			
-			// play a random corner even if it is filled ( for now )
-			TICTACTOE.events.computerClick(TICTACTOE.boardCorner[Math.floor(Math.random()*TICTACTOE.boardCorner.length)]);
+			console.log("Empty corners found ! Making my move in it .");
+			
+			var cornerSelected = Math.floor(Math.random()*TICTACTOE.boardCorner.length);
+			
+			console.log("First corner array position selected : " + cornerSelected );
+			console.log("First corner Selected: " + TICTACTOE.boardCorner[cornerSelected] );
+			
+			while( TICTACTOE.percieve.isBlockEmpty(TICTACTOE.boardCorner[cornerSelected]) == false ){
+				
+				cornerSelected = Math.floor(Math.random()*TICTACTOE.boardCorner.length);
+				
+				console.log("Corner array position selection updated : " + cornerSelected );
+				console.log("Corner Selection updated: " + TICTACTOE.boardCorner[cornerSelected] );
+			}
+			
+			TICTACTOE.events.computerClick(TICTACTOE.boardCorner[cornerSelected]);
 		}
 		else if(TICTACTOE.percieve.isAnySideEmpty() == true){
 			
@@ -174,6 +188,18 @@ TICTACTOE.percieve = {
 		});
 		
 		return assumption;
+	},
+	
+	isBlockEmpty: function(selectedBlock){
+		
+		if ( TICTACTOE.boardFill[selectedBlock - 1 ] == 0 ){
+			
+			return true;
+		}
+		else{
+			
+			return false;
+		}
 	}
 }
 
