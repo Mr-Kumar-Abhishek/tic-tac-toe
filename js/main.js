@@ -108,7 +108,7 @@ TICTACTOE.brain = {
 			
 			TICTACTOE.events.computerClick("5");
 		
-		}else if ( TICTACTOE.percieve.isCorner() == true ){
+		}else if ( TICTACTOE.percieve.isAnyCornerFilled() == true ){
 			
 			console.log("Caught corner !");
 			
@@ -128,7 +128,7 @@ TICTACTOE.percieve = {
 		return assumption;
 	},
 	
-	isCorner: function(){
+	isAnyCornerFilled: function(){
 		var assumption = false;
 		
 		TICTACTOE.boardCorner.some(function(block){
@@ -140,6 +140,8 @@ TICTACTOE.percieve = {
 		
 		return assumption;
 	}
+	
+	
 }
 
 $(TICTACTOE.initialize());
