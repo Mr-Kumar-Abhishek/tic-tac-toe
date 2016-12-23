@@ -130,7 +130,22 @@ TICTACTOE.brain = {
 		}
 		else if(TICTACTOE.percieve.isAnySideEmpty() == true){
 			
-			console.log("one or more empty sides are found !");
+			console.log("Empty sides found ! Making my move in it !");
+			
+			var sideSelected = Math.floor(Math.random()*TICTACTOE.boardSide.length);
+			
+			console.log("First side array position selected : " + cornerSelected );
+			console.log("First side Selected: " + TICTACTOE.boardCorner[cornerSelected] );
+			
+			while ( TICTACTOE.percieve.isBlockEmpty(TICTACTOE.boardSide[sideSelected]) == false ){
+				
+				sideSelected = Math.floor(Math.random()*TICTACTOE.boardSide.length);
+				
+				console.log("Corner array position selection updated : " + sideSelected );
+				console.log("Corner Selection updated: " + TICTACTOE.boardSide[sideSelected] );
+			}
+			
+			TICTACTOE.events.computerClick(TICTACTOE.boardSide[sideSelected]);
 		}
 	}
 }
