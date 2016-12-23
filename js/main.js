@@ -12,7 +12,7 @@ var TICTACTOE = TICTACTOE || {
 		],
 		
 		boardCorner: [1,3,7,9],
-		
+		boardSide: [2,4,6,8],
 		computerScore: 0,
 		playerScore: 0,
 		boardFill: [0,0,0,0,0,0,0,0,0],
@@ -113,6 +113,10 @@ TICTACTOE.brain = {
 			
 			console.log("one more empty corners are found !");
 		}
+		else if(TICTACTOE.percieve.isAnySideEmpty() == true){
+			
+			console.log("one or more empty sides are found !");
+		}
 		else if ( TICTACTOE.percieve.isAnyCornerFilled() == true ){
 			
 			console.log("Caught corner !");
@@ -124,7 +128,9 @@ TICTACTOE.brain = {
 TICTACTOE.percieve = {
 	
 	isEmpty: function(){
+		
 		var assumption = true;
+		
 		TICTACTOE.boardFill.forEach(function(block){
 				if ( 0 ==! block){
 					assumption = false;
@@ -134,9 +140,10 @@ TICTACTOE.percieve = {
 	},
 	
 	isAnyCornerFilled: function(){
+		
 		var assumption = false;
 		
-		TICTACTOE.boardCorner.some(function(block){
+		TICTACTOE.boardSide.some(function(block){
 			if ( TICTACTOE.boardFill[ block - 1 ] == 2 ){
 				assumption = true;
 				return assumption;
@@ -147,9 +154,23 @@ TICTACTOE.percieve = {
 	},
 	
 	isAnyCornerEmpty: function(){
+		
 		var assumption = false;
 		
 		TICTACTOE.boardCorner.some(function(block){
+			if ( TICTACTOE.boardFill[ block - 1 ] == 0 ){
+				assumption = true;
+				return assumption;
+			}
+		});
+		
+		return assumption;
+	},
+	isAnySideEmpty: function(){
+		
+		var assumption = false;
+		
+		TICTACTOE.boardSide.some(function(block){
 			if ( TICTACTOE.boardFill[ block - 1 ] == 0 ){
 				assumption = true;
 				return assumption;
