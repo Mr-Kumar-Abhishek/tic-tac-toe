@@ -111,7 +111,8 @@ TICTACTOE.brain = {
 		}
 		else if(TICTACTOE.percieve.isAnyCornerEmpty() == true ){
 			
-			console.log("one more empty corners are found !");
+			// play a random corner even if it is filled ( for now )
+			TICTACTOE.events.computerClick(TICTACTOE.boardCorner[Math.floor(Math.random()*TICTACTOE.boardCorner.length)]);
 		}
 		else if(TICTACTOE.percieve.isAnySideEmpty() == true){
 			
