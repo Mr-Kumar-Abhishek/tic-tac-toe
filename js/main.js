@@ -108,7 +108,12 @@ TICTACTOE.brain = {
 			
 			TICTACTOE.events.computerClick("5");
 		
-		}else if ( TICTACTOE.percieve.isAnyCornerFilled() == true ){
+		}
+		else if(TICTACTOE.percieve.isAnyCornerEmpty() == true ){
+			
+			console.log("one more empty corners are found !");
+		}
+		else if ( TICTACTOE.percieve.isAnyCornerFilled() == true ){
 			
 			console.log("Caught corner !");
 			
@@ -139,9 +144,20 @@ TICTACTOE.percieve = {
 		});
 		
 		return assumption;
+	},
+	
+	isAnyCornerEmpty: function(){
+		var assumption = false;
+		
+		TICTACTOE.boardCorner.some(function(block){
+			if ( TICTACTOE.boardFill[ block - 1 ] == 0 ){
+				assumption = true;
+				return assumption;
+			}
+		});
+		
+		return assumption;
 	}
-	
-	
 }
 
 $(TICTACTOE.initialize());
