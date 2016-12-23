@@ -106,7 +106,17 @@ TICTACTOE.brain = {
 	decide: function(){
 		if (TICTACTOE.percieve.isEmpty() == true){
 			
-			TICTACTOE.events.computerClick("5");
+			var success = TICTACTOE.brain.strategyPlayCenter();
+			
+			if (success == false ){
+				
+				console.log("Can't play center :/ . User is cheating !");
+				
+			}else if ( success == true ){
+				
+				console.log("Played center ! Your move user :D ");
+				
+			}
 		
 		}
 		else if(TICTACTOE.percieve.isAnyCornerEmpty() == true ){
@@ -147,7 +157,22 @@ TICTACTOE.brain = {
 			
 			TICTACTOE.events.computerClick(TICTACTOE.boardSide[sideSelected]);
 		}
+	},
+	
+	strategyPlayCenter: function(){
+		
+		var centerBox = 5;
+		
+		if ( TICTACTOE.percieve.isBlockEmpty(centerBox) == true ) {
+			
+			TICTACTOE.events.computerClick(centerBox);
+			
+			return true;
+		}
+		
+		return false;
 	}
+	
 }
 
 TICTACTOE.percieve = {
