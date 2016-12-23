@@ -26,15 +26,7 @@ var TICTACTOE = TICTACTOE || {
 		},
 		tests: function(){
 			TICTACTOE.events.userClick();
-			TICTACTOE.events.computerClick("1");
-			TICTACTOE.events.computerClick("2");
-			TICTACTOE.events.computerClick("3");
-			TICTACTOE.events.computerClick("4");
-			TICTACTOE.events.computerClick("5");
-			TICTACTOE.events.computerClick("6");
-			TICTACTOE.events.computerClick("7");
-			TICTACTOE.events.computerClick("8");
-			TICTACTOE.events.computerClick("9");
+			TICTACTOE.brain.takeStep();
 			TICTACTOE.logEverything();
 		}
 	};
@@ -91,6 +83,34 @@ TICTACTOE.events = {
 	computerClick: function(boxNumber) {
 		$("#" + boxNumber).html("O");
 		TICTACTOE.boardFill[boxNumber - 1] = 1;
+	}
+}
+
+TICTACTOE.brain = {
+	
+	takeStep: function(){
+		TICTACTOE.events.computerClick(TICTACTOE.brain.decide());
+	},
+	
+	decide: function(){
+		if (TICTACTOE.percieve.isEmpty() == true){
+			
+			TICTACTOE.events.computerClick("5");
+		
+		}		
+	}
+}
+
+TICTACTOE.percieve = {
+	
+	isEmpty: function(){
+		var assumption = true;
+		TICTACTOE.boardFill.forEach(function(block){
+				if ( 0 ==! block){
+					assumption = false;
+				}
+			});
+		return assumption;
 	}
 }
 
