@@ -253,7 +253,13 @@ TICTACTOE.percieve = {
 	},
 	isBlockByUser: function(UBlock){
 		return TICTACTOE.boardFill[UBlock - 1 ] == 2;
-	} 
+	},
+	isFull: function(){
+		
+		return TICTACTOE.boardFill.every(function(filledBlock){
+					return filledBlock == 1 || filledBlock == 2;
+				});
+	}
 }
 
 TICTACTOE.judge = {
@@ -266,6 +272,9 @@ TICTACTOE.judge = {
 		}else if ( TICTACTOE.judge.didComputerWon() == true ){
 			console.log("Machine Won !");
 			++TICTACTOE.computerScore;
+			TICTACTOE.events.clearBoard();
+		}else if( TICTACTOE.percieve.isFull() == true ){
+			console.log("It is a Draw !");
 			TICTACTOE.events.clearBoard();
 		}
 	},
