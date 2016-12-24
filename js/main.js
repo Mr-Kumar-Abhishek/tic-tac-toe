@@ -253,13 +253,11 @@ TICTACTOE.percieve = {
 TICTACTOE.judge = {
 	
 	anyWon: function(){
-		var winLoose  = TICTACTOE.winRoutes.some(function(route){
-			
-							return route.every(TICTACTOE.percieve.isBlockByComputer) || route.every(TICTACTOE.percieve.isBlockByUser);
-						});
-		
-		if (winLoose == true){
-			console.log("Someone won");
+		if (TICTACTOE.judge.didUserWon() == true){
+			console.log("You won !");
+			TICTACTOE.events.clearBoard();
+		}else if ( TICTACTOE.judge.didComputerWon() == true ){
+			console.log("Machine Won !");
 			TICTACTOE.events.clearBoard();
 		}
 	},
