@@ -96,6 +96,7 @@ TICTACTOE.events = {
 		TICTACTOE.boardFill.forEach(function(blockToClear, index, board){
 			board[index] = 0;
 		});
+		TICTACTOE.brain.takeStep();
 	}
 }
 
