@@ -258,6 +258,20 @@ TICTACTOE.judge = {
 		if (winLoose == true){
 			console.log("Someone won");
 		}
+	},
+	didComputerWon: function(){
+		var computerWon = TICTACTOE.winRoutes.some(function ( cRoute ){
+							
+							return cRoute.every(TICTACTOE.percieve.isBlockByComputer);
+						});
+		return computerWon;
+	},
+	didUserWon: function(){
+		var userWon = TICTACTOE.winRoutes.some(function (uRoute) {
+			
+							return uRoute.every(TICTACTOE.percieve.isBlockByUser);
+					});
+		return userWon;
 	}
 }
 
