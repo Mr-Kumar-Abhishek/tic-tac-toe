@@ -266,15 +266,15 @@ TICTACTOE.judge = {
 	
 	anyWon: function(){
 		if (TICTACTOE.judge.didUserWon() == true){
-			console.log("You won !");
+			alert("You won !");
 			++TICTACTOE.playerScore;
 			TICTACTOE.events.clearBoard();
 		}else if ( TICTACTOE.judge.didComputerWon() == true ){
-			console.log("Machine Won !");
+			alert("Machine Won !");
 			++TICTACTOE.computerScore;
 			TICTACTOE.events.clearBoard();
 		}else if( TICTACTOE.percieve.isFull() == true ){
-			console.log("It is a Draw !");
+			alert("It is a Draw !");
 			TICTACTOE.events.clearBoard();
 		}
 	},
