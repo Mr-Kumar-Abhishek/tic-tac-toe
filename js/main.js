@@ -90,6 +90,9 @@ TICTACTOE.events = {
 		TICTACTOE.logEverything();
 		TICTACTOE.brain.takeStep();
 		TICTACTOE.judge.anyWon();
+	},
+	clearBoard: function() {
+		$("#1, #2, #3, #4, #5, #6, #7, #8, #9").html("");
 	}
 }
 
@@ -257,6 +260,7 @@ TICTACTOE.judge = {
 		
 		if (winLoose == true){
 			console.log("Someone won");
+			TICTACTOE.events.clearBoard();
 		}
 	},
 	didComputerWon: function(){
