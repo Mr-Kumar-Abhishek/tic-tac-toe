@@ -38,49 +38,76 @@ var TICTACTOE = TICTACTOE || {
 TICTACTOE.events = {
 	userClick: function(){
 		$("#1").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[0] = 2;
-			TICTACTOE.events.afterUserClick();
+			if( TICTACTOE.percieve.isBlockEmpty(1) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[0] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#2").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[1] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(2) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[1] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#3").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[2] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(3) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[2] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#4").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[3] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(4) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[3] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#5").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[4] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(5) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[4] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#6").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[5] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(6) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[5] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#7").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[6] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(7) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[6] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#8").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[7] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(8) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[7] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 		$("#9").click(function(){
-			$(this).html("X");
-			TICTACTOE.boardFill[8] = 2;
-			TICTACTOE.events.afterUserClick();
+			if ( TICTACTOE.percieve.isBlockEmpty(9) == true ){
+				
+				$(this).html("X");
+				TICTACTOE.boardFill[8] = 2;
+				TICTACTOE.events.afterUserClick();
+			}
 		});
 	},
 	computerClick: function(boxNumber) {
