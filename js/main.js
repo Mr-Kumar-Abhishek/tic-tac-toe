@@ -142,8 +142,8 @@ TICTACTOE.brain = {
 			
 			var sideSelected = Math.floor(Math.random()*TICTACTOE.boardSide.length);
 			
-			console.log("First side array position selected : " + cornerSelected );
-			console.log("First side Selected: " + TICTACTOE.boardCorner[cornerSelected] );
+			console.log("First side array position selected : " + sideSelected );
+			console.log("First side Selected: " + TICTACTOE.boardCorner[sideSelected] );
 			
 			while ( TICTACTOE.percieve.isBlockEmpty(TICTACTOE.boardSide[sideSelected]) == false ){
 				
