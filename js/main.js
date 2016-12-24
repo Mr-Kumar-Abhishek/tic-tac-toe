@@ -255,9 +255,11 @@ TICTACTOE.judge = {
 	anyWon: function(){
 		if (TICTACTOE.judge.didUserWon() == true){
 			console.log("You won !");
+			++TICTACTOE.playerScore;
 			TICTACTOE.events.clearBoard();
 		}else if ( TICTACTOE.judge.didComputerWon() == true ){
 			console.log("Machine Won !");
+			++TICTACTOE.computerScore;
 			TICTACTOE.events.clearBoard();
 		}
 	},
