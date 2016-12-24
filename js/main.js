@@ -252,7 +252,7 @@ TICTACTOE.judge = {
 	anyWon: function(){
 		var winLoose  = TICTACTOE.winRoutes.some(function(route){
 			
-							return route.every(TICTACTOE.percieve.isBlockByComputer) || route.every(TICTACTOE.percieve.isBlockByComputer);
+							return route.every(TICTACTOE.percieve.isBlockByComputer) || route.every(TICTACTOE.percieve.isBlockByUser);
 						});
 		
 		if (winLoose == true){
