@@ -85,6 +85,7 @@ TICTACTOE.events = {
 	computerClick: function(boxNumber) {
 		$("#" + boxNumber).html("O");
 		TICTACTOE.boardFill[boxNumber - 1] = 1;
+		TICTACTOE.judge.anyWon();
 	},
 	afterUserClick: function(){
 		TICTACTOE.logEverything();
