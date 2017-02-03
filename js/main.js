@@ -126,6 +126,10 @@ TICTACTOE.events = {
 			board[index] = 0;
 		});
 		TICTACTOE.brain.takeStep();
+	},
+	updateScoreUI: function() {
+		$("#machine-score").html(TICTACTOE.computerScore);
+		$("#user-score").html(TICTACTOE.playerScore);
 	}
 }
 
@@ -296,10 +300,12 @@ TICTACTOE.judge = {
 			alert("You won !");
 			++TICTACTOE.playerScore;
 			TICTACTOE.events.clearBoard();
+			TICTACTOE.events.updateScoreUI();
 		}else if ( TICTACTOE.judge.didComputerWon() == true ){
 			alert("Machine Won !");
 			++TICTACTOE.computerScore;
 			TICTACTOE.events.clearBoard();
+			TICTACTOE.events.updateScoreUI();
 		}else if( TICTACTOE.percieve.isFull() == true ){
 			alert("It is a Draw !");
 			TICTACTOE.events.clearBoard();
