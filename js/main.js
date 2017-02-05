@@ -95,75 +95,12 @@ TICTACTOE.stageManage = {
 
 TICTACTOE.events = {
 	userClick: function(){
-		$("#1").click(function(){
-			if( TICTACTOE.percieve.isBlockEmpty(1) == true ){
-				
+		
+		$(".tic-tac-box").click(function(){
+            var blockIndex = $(this).index();
+            if( TICTACTOE.percieve.isBlockEmpty(blockIndex + 1 ) == true ){
 				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[0] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#2").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(2) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[1] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#3").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(3) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[2] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#4").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(4) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[3] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#5").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(5) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[4] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#6").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(6) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[5] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#7").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(7) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[6] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#8").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(8) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[7] = 2;
-				TICTACTOE.events.afterUserClick();
-			}
-		});
-		$("#9").click(function(){
-			if ( TICTACTOE.percieve.isBlockEmpty(9) == true ){
-				
-				$(this).html(TICTACTOE.playerSign);
-				TICTACTOE.boardFill[8] = 2;
+				TICTACTOE.boardFill[blockIndex] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
 		});
