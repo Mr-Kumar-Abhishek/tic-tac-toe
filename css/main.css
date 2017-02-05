@@ -29,7 +29,7 @@ h1 {
 
 .scores {
 	display: flex;
-    margin-top: 10vw;
+    margin-top: 2vw;
     justify-content: center;
 }
 
@@ -38,4 +38,31 @@ h1 {
     margin-right: 140px;
     color: #fff;
     font-size: 1.5em;
+}
+
+.choose {
+	display: flex;
+	justify-content: center;
+	margin-top: 3vw;
+	font-size: 15px;
+	color: #fff;
+}
+
+.choose-text {
+	margin-top: 5vw;
+}
+
+.choose p {
+	font-size: 18px;
+}
+
+p  {
+	text-align: center;
+	font-size: 22px;
+	color: #fff;
+}
+
+input[type=radio] {
+	margin-left: 5px;
+	margin-right: 5px;
 }
