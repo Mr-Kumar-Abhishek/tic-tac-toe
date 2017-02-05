@@ -16,10 +16,15 @@ var TICTACTOE = TICTACTOE || {
 		boardSide: [2,4,6,8],
 		computerScore: 0,
 		playerScore: 0,
+		playerSign: null,
+		computerSign: null,
 		boardFill: [0,0,0,0,0,0,0,0,0],
 		initialize: function(){
 			TICTACTOE.logEverything();
-			TICTACTOE.tests();
+			TICTACTOE.stageManage.startGame();
+			
+			/* tests for checking the workings of TICTACTOE game */
+			//TICTACTOE.tests();
 		},
 		logEverything: function(){
 			console.log("winning routes : " + TICTACTOE.winRoutes);
@@ -34,13 +39,66 @@ var TICTACTOE = TICTACTOE || {
 		}
 	};
 	
-	
+TICTACTOE.stageManage = {
+		startGame: function(){
+			console.log("startGame is running ...");
+			$("#start").click(function(){
+				
+				console.log("user initiated the game ...");
+				
+				var playerMark = $('input[name="player-mark"]:checked').val();
+				console.log("playerMark got ..." + playerMark);
+				
+				var computerMark = TICTACTOE.stageManage.setComputerMark(playerMark);
+				console.log("computerMark got ..." + computerMark);
+				
+				if (computerMark != 0) {
+					TICTACTOE.playerSign = playerMark;
+					console.log("playerSign got ...." + TICTACTOE.playerSign);
+					
+					TICTACTOE.computerSign = computerMark;
+					console.log("computerSign got ..." + TICTACTOE.computerSign);
+					
+					TICTACTOE.stageManage.setStage();
+					TICTACTOE.stageManage.disableGameSettings();
+					
+				}else{
+					alert("Please Choose 'X' or 'Y' and then press 'start' button");
+				}  
+			});
+		},
+		setComputerMark: function(mark){
+			if(mark == 'X'){
+				return 'O';
+			}else if(mark == 'O'){
+				return 'X';
+			}else {
+				return 0;
+			}
+		},
+		setStage: function(){
+			if(TICTACTOE.computerSign == "X"){
+				TICTACTOE.events.userClick();
+				TICTACTOE.brain.takeStep();
+			}else if(TICTACTOE.computerSign == "O"){
+				TICTACTOE.events.userClick();
+			}else {
+				alert("Problem in setting stage...");
+			}
+		},
+		disableGameSettings: function(){
+			 document.getElementById("O").disabled = true;
+			 document.getElementById("X").disabled = true;
+			 document.getElementById("start").disabled = true;
+		}
+};
+
 TICTACTOE.events = {
 	userClick: function(){
 		$("#1").click(function(){
 			if( TICTACTOE.percieve.isBlockEmpty(1) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[0] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -48,7 +106,7 @@ TICTACTOE.events = {
 		$("#2").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(2) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[1] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -56,7 +114,7 @@ TICTACTOE.events = {
 		$("#3").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(3) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[2] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -64,7 +122,7 @@ TICTACTOE.events = {
 		$("#4").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(4) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[3] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -72,7 +130,7 @@ TICTACTOE.events = {
 		$("#5").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(5) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[4] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -80,7 +138,7 @@ TICTACTOE.events = {
 		$("#6").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(6) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[5] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -88,7 +146,7 @@ TICTACTOE.events = {
 		$("#7").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(7) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[6] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -96,7 +154,7 @@ TICTACTOE.events = {
 		$("#8").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(8) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[7] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
@@ -104,14 +162,14 @@ TICTACTOE.events = {
 		$("#9").click(function(){
 			if ( TICTACTOE.percieve.isBlockEmpty(9) == true ){
 				
-				$(this).html("X");
+				$(this).html(TICTACTOE.playerSign);
 				TICTACTOE.boardFill[8] = 2;
 				TICTACTOE.events.afterUserClick();
 			}
 		});
 	},
 	computerClick: function(boxNumber) {
-		$("#" + boxNumber).html("O");
+		$("#" + boxNumber).html(TICTACTOE.computerSign);
 		TICTACTOE.boardFill[boxNumber - 1] = 1;
 		TICTACTOE.judge.anyWon();
 	},
@@ -125,7 +183,7 @@ TICTACTOE.events = {
 		TICTACTOE.boardFill.forEach(function(blockToClear, index, board){
 			board[index] = 0;
 		});
-		TICTACTOE.brain.takeStep();
+		TICTACTOE.stageManage.setStage();
 	},
 	updateScoreUI: function() {
 		$("#machine-score").html(TICTACTOE.computerScore);
