@@ -86,6 +86,15 @@ TICTACTOE.stageManage = {
 				alert("Problem in setting stage...");
 			}
 		},
+		resetStage: function(){
+			if(TICTACTOE.computerSign == "X"){
+				TICTACTOE.brain.takeStep();
+			}else if (TICTACTOE.computerSign == "O"){
+				// do nothing
+			}else {
+				alert("Problem in resetting the stage ..");
+			}
+		},
 		disableGameSettings: function(){
 			 document.getElementById("O").disabled = true;
 			 document.getElementById("X").disabled = true;
@@ -120,7 +129,7 @@ TICTACTOE.events = {
 		TICTACTOE.boardFill.forEach(function(blockToClear, index, board){
 			board[index] = 0;
 		});
-		TICTACTOE.stageManage.setStage();
+		TICTACTOE.stageManage.resetStage();
 	},
 	updateScoreUI: function() {
 		$("#machine-score").html(TICTACTOE.computerScore);
